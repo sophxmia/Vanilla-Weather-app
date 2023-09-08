@@ -14,20 +14,32 @@
   </head>
   <body>
     <div class="container">
-      <div class="weather-app">
-        <h1>Weather Forecast App</h1>
-        <div class="row">
-          <div class="col-8">
-            Kyiv <br />
-            ☀️ 24°C
-          </div>
-          <div class="col-4">
-            <ul>
-              <li>UA, Kyiv</li>
-              <li>08 Sep 2023</li>
-              <li>Friday</li>
-              <li>17:05:23</li>
-            </ul>
+      <div class="weather-app-wrapper">
+        <div class="weather-app">
+          <h1>Weather Forecast App</h1>
+          <div class="row">
+            <div class="col-8">
+              <h2>Kyiv</h2>
+              <div class="d-flex weather-temperature">
+                <img
+                  src="https://ssl.gstatic.com/onebox/weather/64/partly_cloudy.png"
+                  alt="partly_cloud\y"
+                  id="icon"
+                />
+                <div>
+                  <strong id="temperature">12</strong
+                  ><span class="units">°C | <a href="#">°F</a></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <ul>
+                <li>UA, Kyiv</li>
+                <li>08 Sep 2023</li>
+                <li>Friday</li>
+                <li>17:05:23</li>
+              </ul>
+            </div>
           </div>
         </div>
         <small
