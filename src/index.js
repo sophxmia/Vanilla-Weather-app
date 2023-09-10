@@ -43,6 +43,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let timeElement = document.querySelector("#time");
   let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
 
   temperatureElement.innerHTML = Math.round(response.data.temperature.current);
   cityElement.innerHTML = response.data.city;
@@ -52,6 +53,8 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   timeElement.innerHTML = formatTime(response.data.time * 1000);
   dateElement.innerHTML = formatDate(response.data.time * 1000);
+  iconElement.setAttribute("src", response.data.condition.icon_url);
+  iconElement.setAttribute("alt", response.data.condition.description);
 }
 
 let city = "Kyiv";
