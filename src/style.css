@@ -69,3 +69,11 @@ a {
   font-size: 12px;
   line-height: 1;
 }
+.weather-temperature .active {
+  color: rgb(33, 33, 33);
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
