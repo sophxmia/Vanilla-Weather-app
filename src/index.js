@@ -57,7 +57,19 @@ function displayTemperature(response) {
   iconElement.setAttribute("alt", response.data.condition.description);
 }
 
-let city = "Kyiv";
-let apiKey = "0fdf1tcb941583e4e4o91cb9b04cef1a";
-let apUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-axios.get(apUrl).then(displayTemperature);
+function search(city) {
+  let apiKey = "0fdf1tcb941583e4e4o91cb9b04cef1a";
+  let apUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+  axios.get(apUrl).then(displayTemperature);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Kyiv");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
