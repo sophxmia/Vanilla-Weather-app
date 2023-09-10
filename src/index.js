@@ -11,7 +11,7 @@ function formatTime(timestamp) {
   return `${hours}:${minutes}`;
 }
 function formatDate(timestamp) {
-  let date = new Date(timestamp);
+  let now = new Date(timestamp);
   let days = [
     "Sunday",
     "Monday",
@@ -21,9 +21,17 @@ function formatDate(timestamp) {
     "Friday",
     "Saturday",
   ];
-  let day = days[date.getDay()];
-
-  return `${day} `;
+  let day = days[now.getDay()];
+  let year = now.getFullYear();
+  let month = now.getMonth();
+  let date = now.getDate();
+  if (date < 10) {
+    date = `0${date}`;
+  }
+  if (month < 10) {
+    month = `0${month}`;
+  }
+  return `${day} ${month}/${date}/${year}`;
 }
 
 function displayTemperature(response) {
@@ -46,6 +54,7 @@ function displayTemperature(response) {
   dateElement.innerHTML = formatDate(response.data.time * 1000);
 }
 
+let city = "Kyiv";
 let apiKey = "0fdf1tcb941583e4e4o91cb9b04cef1a";
-let apUrl = `https://api.shecodes.io/weather/v1/current?query=Kyiv&key=${apiKey}&units=metric`;
+let apUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 axios.get(apUrl).then(displayTemperature);
