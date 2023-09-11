@@ -120,10 +120,18 @@ function handleSubmit(event) {
   search(cityInputElement.value);
 }
 
+function retrievePosition(position) {
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiKey = "0fdf1tcb941583e4e4o91cb9b04cef1a";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lat=${lat}&lon=${lon}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+
 function displayFarenheitTemperature(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#temperature");
-  
+
   celsiusLink.classList.remove("active");
   farenheitLink.classList.add("active");
   let farenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
@@ -150,3 +158,5 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Kyiv");
+
+navigator.geolocation.getCurrentPosition(retrievePosition);
