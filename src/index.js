@@ -10,6 +10,32 @@ function formatTime(timestamp) {
   }
   return `${hours}:${minutes}`;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+
+  forecastHTML +=
+    `
+    <div class="col-2">
+      <div class="weather-forecast-date">Thu</div>
+      <img
+        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
+        alt="few-clouds-day"
+        width="42"
+      />
+      <div class="weather-forecast-temperature">
+        <span class="weather-forecast-temperature-max">18°</span>
+        <span class="weather-forecast-temperature-min">12°</span>
+      </div>
+    </div>
+  `;
+  forecastHTML += `</div>`;
+
+  
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function formatDate(timestamp) {
   let now = new Date(timestamp);
   let days = [
@@ -90,6 +116,9 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
+search("Kyiv");
+displayForecast();
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
@@ -98,5 +127,3 @@ farenheitLink.addEventListener("click", displayFarenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
-
-search("Kyiv");
