@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #5c715e;
+}
+
 html {
   min-width: none;
 }
@@ -6,8 +10,7 @@ body {
   background-color: #f2f9f1;
 }
 h1 {
-  color: #5c715e;
-  font-size: 32px;
+  color: var(--primary-color);
   font-weight: 200;
   line-height: 50px;
 }
@@ -18,8 +21,7 @@ h2:hover {
   transition-delay: 100ms;
 }
 h2 {
-  color: #5c715e;
-  font-size: 28px;
+  color: var(--primary-color);
   font-weight: 100;
 }
 ul {
@@ -28,7 +30,7 @@ ul {
 }
 li {
   list-style-type: none;
-  color: #5c715e;
+  color: var(--primary-color);
   margin: 0;
   padding: 0;
   text-transform: capitalize;
@@ -37,17 +39,14 @@ li {
   line-height: 23px;
 }
 a {
-  color: #5c715e;
+  color: var(--primary-color);
   text-decoration: none;
 }
 a:hover {
-  color: #5c715e;
+  color: var(--primary-color);
   text-decoration: none;
   cursor: pointer;
   transition-delay: 100ms;
-}
-.row {
-  margin-left: 30px;
 }
 .weather-app-wrapper {
   max-width: 660px;
@@ -55,7 +54,7 @@ a:hover {
 }
 .weather-app {
   padding: 20px;
-  border: 1px solid #5c715e;
+  border: 1px solid var(--primary-color);
   border-radius: 10px;
   background: radial-gradient(rgb(182, 205, 189) 0%, rgb(221, 238, 223) 100%);
 }
@@ -65,17 +64,14 @@ a:hover {
 }
 .weather-temperature img {
   margin-right: 15px;
-  height: 64px;
-  width: 64px;
 }
 .weather-temperature strong {
-  color: #5c715e;
+  color: var(--primary-color);
   font-weight: 400;
   font-size: 64px;
-  line-height: 1;
 }
 .weather-temperature .units {
-  color: #5c715e;
+  color: var(--primary-color);
   position: relative;
   font-size: 16px;
   top: -34px;
@@ -88,12 +84,12 @@ a:hover {
   line-height: 1;
 }
 .weather-temperature .active {
-  color: #5c715e;
+  color: var(--primary-color);
   cursor: default;
 }
 
 .weather-temperature .active:hover {
-  color: #5c715e;
+  color: var(--primary-color);
   text-decoration: none;
 }
 
@@ -107,13 +103,13 @@ a:hover {
 }
 .weather-forecast-date {
   font-size: 16px;
-  color: #5c715e;
+  color: var(--primary-color);
 }
 .weather-forecast-temperature-min {
   opacity: 0.5;
 }
 .weather-forecast .col-2:hover {
-  border: 1px solid #5c715e;
+  border: 1px solid var(--primary-color);
   border-radius: 10px;
   cursor: pointer;
   transition-delay: 100ms;
@@ -128,5 +124,20 @@ a:hover {
   .btn {
     display: block;
     width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .weather-temperature strong {
+    font-size: 46px;
+  }
+  .weather-temperature img {
+    width: 74px;
+    height: 74px;
+  }
+  .weather-temperature img {
+    margin-right: 0px;
+  }
+  .weather-temperature .units {
+    font-size: 12px;
   }
 }
