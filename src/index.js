@@ -11,12 +11,12 @@ function formatDate(timestamp) {
   ];
   let day = days[now.getDay()];
   let year = now.getFullYear();
-  let month = now.getMonth();
+  let month = now.getMonth() + 1;
   let date = now.getDate();
-  if (date < 10) {
+  if (date <= 9) {
     date = `0${date}`;
   }
-  if (month < 10) {
+  if (month <= 9) {
     month = `0${month}`;
   }
   return `${day} ${month}/${date}/${year}`;
